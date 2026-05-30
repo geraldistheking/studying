@@ -14,10 +14,10 @@ The 3kh0 Assets README says the games may be used and asks for credit. This site
 
 ## How it works
 
-The game cards are listed in `app.js`. Each card opens an iframe using the CDN pattern from the 3kh0 Assets README:
+The game cards are listed in `app.js`. Each card opens an iframe using the GitLab GitHack CDN pattern:
 
 ```text
-https://raw.githack.com/3kh0/3kh0-assets/main/GAME-FOLDER/index.html
+https://gl.githack.com/3kh0/3kh0-assets/-/raw/main/GAME-FOLDER/index.html
 ```
 
 This avoids uploading the entire assets repo, which is huge.

@@ -1,4 +1,5 @@
-const cdnBase = "https://raw.githack.com/3kh0/3kh0-assets/main/";
+const gameCdnBase = "https://gl.githack.com/3kh0/3kh0-assets/-/raw/main/";
+const imageBase = "https://gitlab.com/3kh0/3kh0-assets/-/raw/main/";
 const colors = ["#55f0b2", "#ffd166", "#77d5ff", "#ff665c"];
 
 const games = [
@@ -122,7 +123,9 @@ const games = [
   title,
   slug,
   category,
-  url: `${cdnBase}${encodeURIComponent(slug).replaceAll("%2F", "/")}/index.html`,
+  url: `${gameCdnBase}${encodePath(slug)}/index.html`,
+  image: `${imageBase}${encodePath(slug)}/thumb.png`,
+  fallbackImage: `${imageBase}${encodePath(slug)}/${encodeURIComponent(slug.split("/").pop())}.png`,
   accent: colors[index % colors.length]
 }));
 
@@ -182,7 +185,23 @@ function render() {
     card.type = "button";
     card.className = "game-card";
     card.style.setProperty("--accent", game.accent);
-    card.innerHTML = `<strong>${escapeHtml(game.title)}</strong><span>${escapeHtml(game.category)}</span>`;
+    card.innerHTML = `
+      <span class="thumb-wrap">
+        <img src="${game.image}" alt="" loading="lazy" data-fallback="${game.fallbackImage}">
+        <span class="thumb-fallback">${escapeHtml(initials(game.title))}</span>
+      </span>
+      <strong>${escapeHtml(game.title)}</strong>
+      <span>${escapeHtml(game.category)}</span>
+    `;
+    const image = card.querySelector("img");
+    image.addEventListener("error", () => {
+      if (!image.dataset.triedFallback) {
+        image.dataset.triedFallback = "true";
+        image.src = image.dataset.fallback;
+      } else {
+        image.hidden = true;
+      }
+    });
     card.addEventListener("click", () => openGame(game));
     grid.append(card);
   });
@@ -208,6 +227,20 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function encodePath(path) {
+  return path.split("/").map((part) => encodeURIComponent(part)).join("/");
+}
+
+function initials(title) {
+  return title
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
 }
 
 searchInput.addEventListener("input", render);

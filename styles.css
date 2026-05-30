@@ -216,13 +216,20 @@ button.active {
 .game-card {
   position: relative;
   display: grid;
-  min-height: 10rem;
+  grid-template-rows: 7rem auto 1fr;
+  gap: 0.65rem;
+  min-height: 14.5rem;
   padding: 0.9rem;
   overflow: hidden;
   background: linear-gradient(160deg, rgba(32, 36, 50, 0.96), rgba(20, 22, 30, 0.96));
   border: 1px solid var(--line);
   border-radius: 0.5rem;
   text-align: left;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
 .game-card::before {
@@ -236,7 +243,7 @@ button.active {
 .game-card strong {
   position: relative;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
   font-size: 1.1rem;
   overflow-wrap: anywhere;
 }
@@ -249,7 +256,53 @@ button.active {
 }
 
 .game-card:hover {
-  transform: translateY(-2px);
+  background: linear-gradient(160deg, rgba(42, 48, 66, 0.98), rgba(23, 26, 36, 0.98));
+  border-color: color-mix(in srgb, var(--accent), white 18%);
+  box-shadow: 0 1.3rem 3.2rem rgba(0, 0, 0, 0.32), 0 0 0 1px color-mix(in srgb, var(--accent), transparent 35%);
+  transform: translateY(-6px) scale(1.025);
+}
+
+.game-card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+.thumb-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 7rem;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent), transparent 50%), rgba(255, 250, 242, 0.06)),
+    #10131b;
+  border: 1px solid rgba(255, 250, 242, 0.1);
+  border-radius: 0.42rem;
+}
+
+.thumb-wrap img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.game-card:hover .thumb-wrap img {
+  filter: saturate(1.12) contrast(1.06);
+  transform: scale(1.08);
+}
+
+.thumb-fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #101116;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  font-size: 2.5rem;
+  font-weight: 1000;
 }
 
 .player-dialog {
