@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Break Shelf</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#library" aria-label="Study Break Shelf home">
+        <img src="assets/logo.svg" alt="">
+        <span>Study Break Shelf</span>
+      </a>
+      <div class="top-actions">
+        <button id="randomButton" type="button">Random</button>
+        <button id="focusButton" type="button">Focus Mode</button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside id="library" class="sidebar">
+        <section class="intro">
+          <p class="eyebrow">Game library</p>
+          <h1>Study Break Shelf</h1>
+          <p>
+            A clean arcade launcher using 3kh0 Assets with credit. Pick a game,
+            search fast, and play without leaving the page.
+          </p>
+        </section>
+
+        <label class="search-box">
+          <span>Search games</span>
+          <input id="searchInput" type="search" placeholder="2048, run, slope...">
+        </label>
+
+        <div id="categoryBar" class="category-bar" aria-label="Game categories"></div>
+
+        <section class="credits">
+          <strong>Credit</strong>
+          <span>Game files: 3kh0 Assets. Launcher UI: yours.</span>
+        </section>
+      </aside>
+
+      <section class="content">
+        <div class="toolbar">
+          <div>
+            <p class="eyebrow">Now browsing</p>
+            <h2 id="resultTitle">All Games</h2>
+          </div>
+          <p id="resultCount" class="count">0 games</p>
+        </div>
+
+        <div id="gameGrid" class="game-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <dialog id="playerDialog" class="player-dialog">
+      <div class="player-top">
+        <div>
+          <p id="playerMeta" class="eyebrow">Ready</p>
+          <h2 id="playerTitle">Game</h2>
+        </div>
+        <div class="player-actions">
+          <button id="fullscreenButton" type="button">Fullscreen</button>
+          <button id="closeButton" type="button">Close</button>
+        </div>
+      </div>
+      <iframe id="gameFrame" title="Game player" allowfullscreen></iframe>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
