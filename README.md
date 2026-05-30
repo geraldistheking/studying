@@ -34,6 +34,8 @@ README.md
 assets/
 ```
 
+The animated background loads Three.js and Vanta Clouds from public CDNs. If those scripts are blocked, the page falls back to a normal blue gradient background.
+
 Then turn on GitHub Pages:
 
 1. Open your repository settings.

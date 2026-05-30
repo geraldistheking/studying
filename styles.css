@@ -30,6 +30,24 @@ body {
     var(--bg);
 }
 
+#cloudBackground {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 184, 216, 0.28), transparent 28rem),
+    linear-gradient(180deg, #121b72, #a9d4ef);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(169, 212, 239, 0.12));
+}
+
 button,
 input {
   font: inherit;
@@ -91,7 +109,6 @@ button.active {
   border-radius: 0.5rem;
 }
 
-.top-actions,
 .player-actions {
   gap: 0.5rem;
 }
@@ -364,27 +381,6 @@ button.active {
   display: block;
   background: #f4fbff;
   border: 0;
-}
-
-body.focus .sidebar,
-body.focus .toolbar,
-body.focus .topbar {
-  display: none;
-}
-
-body.focus .app-shell {
-  display: block;
-  width: 100%;
-  padding: 0;
-}
-
-body.focus .player-dialog[open] {
-  width: 100vw;
-  height: 100vh;
-  max-width: none;
-  max-height: none;
-  border: 0;
-  border-radius: 0;
 }
 
 @media (max-width: 860px) {

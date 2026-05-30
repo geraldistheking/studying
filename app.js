@@ -34,7 +34,7 @@ const games = [
   ["Bloons TD 2", "bloonstd2", "Strategy"],
   ["Bloxors", "bloxors", "Puzzle"],
   ["Bob the Robber 2", "bobtherobber2", "Stealth"],
-  ["Bonk.io", "bonkio", "Multiplayer"],
+  ["Bonk.io", "bonk", "Multiplayer"],
   ["Boxhead 2Play", "boxhead2play", "Action"],
   ["Boxing Random", "boxing-random", "Sports"],
   ["Breaking the Bank", "breakingthebank", "Story"],
@@ -140,8 +140,6 @@ const playerTitle = document.querySelector("#playerTitle");
 const playerMeta = document.querySelector("#playerMeta");
 const closeButton = document.querySelector("#closeButton");
 const fullscreenButton = document.querySelector("#fullscreenButton");
-const randomButton = document.querySelector("#randomButton");
-const focusButton = document.querySelector("#focusButton");
 
 let activeCategory = "All";
 
@@ -214,12 +212,6 @@ function openGame(game) {
   dialog.showModal();
 }
 
-function openRandom() {
-  const visible = filteredGames();
-  const list = visible.length ? visible : games;
-  openGame(list[Math.floor(Math.random() * list.length)]);
-}
-
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -234,8 +226,29 @@ function encodePath(path) {
 }
 
 
+function startClouds() {
+  if (!window.VANTA?.CLOUDS) return;
+  window.VANTA.CLOUDS({
+    el: "#cloudBackground",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200,
+    minWidth: 200,
+    skyColor: 0x0f1764,
+    cloudColor: 0xadd9de,
+    cloudShadowColor: 0x183050,
+    sunColor: 0xff8f19,
+    sunGlareColor: 0xff6c33,
+    sunlightColor: 0xffad53,
+    speed: 1,
+    scale: 3,
+    scaleMobile: 12,
+    backgroundAlpha: 1
+  });
+}
+
 searchInput.addEventListener("input", render);
-randomButton.addEventListener("click", openRandom);
 closeButton.addEventListener("click", () => dialog.close());
 dialog.addEventListener("close", () => {
   frame.src = "about:blank";
@@ -243,9 +256,6 @@ dialog.addEventListener("close", () => {
 fullscreenButton.addEventListener("click", () => {
   if (frame.requestFullscreen) frame.requestFullscreen();
 });
-focusButton.addEventListener("click", () => {
-  document.body.classList.toggle("focus");
-  focusButton.textContent = document.body.classList.contains("focus") ? "Exit Focus" : "Focus Mode";
-});
 
+startClouds();
 render();
