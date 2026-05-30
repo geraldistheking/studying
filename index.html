@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Study Break Shelf</title>
+    <title>Studying all periods</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="topbar">
       <a class="brand" href="#library" aria-label="Study Break Shelf home">
         <img src="assets/logo.svg" alt="">
-        <span>Study Break Shelf</span>
+        <span>Study all periods</span>
       </a>
       <div class="top-actions">
         <button id="randomButton" type="button">Random</button>
@@ -21,16 +21,15 @@
     <main class="app-shell">
       <aside id="library" class="sidebar">
         <section class="intro">
-          <p class="eyebrow">Game library</p>
-          <h1>Study Break Shelf</h1>
+          <p class="eyebrow">Class library</p>
+          <h1>Studying all periods</h1>
           <p>
-            A clean arcade launcher using 3kh0 Assets with credit. Pick a game,
-            search fast, and play without leaving the page.
+           A clean studying site to study for all periods. Periods/classes include: Math, Science, Language arts, Social studies, Health, and more.
           </p>
         </section>
 
         <label class="search-box">
-          <span>Search games</span>
+          <span>Search classes</span>
           <input id="searchInput" type="search" placeholder="2048, run, slope...">
         </label>
 
@@ -38,7 +37,7 @@
 
         <section class="credits">
           <strong>Credit</strong>
-          <span>Game files: 3kh0 Assets. Launcher UI: yours.</span>
+          <span>Class files: 3kh0 Assets. Launcher UI: timmy's</span>
         </section>
       </aside>
 
@@ -46,9 +45,9 @@
         <div class="toolbar">
           <div>
             <p class="eyebrow">Now browsing</p>
-            <h2 id="resultTitle">All Games</h2>
+            <h2 id="resultTitle">All Classes</h2>
           </div>
-          <p id="resultCount" class="count">0 games</p>
+          <p id="resultCount" class="count">0 classes</p>
         </div>
 
         <div id="gameGrid" class="game-grid" aria-live="polite"></div>
@@ -59,7 +58,7 @@
       <div class="player-top">
         <div>
           <p id="playerMeta" class="eyebrow">Ready</p>
-          <h2 id="playerTitle">Game</h2>
+          <h2 id="playerTitle">Study</h2>
         </div>
         <div class="player-actions">
           <button id="fullscreenButton" type="button">Fullscreen</button>
