@@ -80,7 +80,7 @@ button.active {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.85rem clamp(1rem, 3vw, 2rem);
-  background: rgba(169, 212, 239, 0.86);
+  background: rgba(0, 0, 0, 0.9);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
 }
@@ -96,7 +96,7 @@ button.active {
 
 .brand {
   gap: 0.7rem;
-  color: inherit;
+  color: white;
   text-decoration: none;
   font-weight: 1000;
 }
