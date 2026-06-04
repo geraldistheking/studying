@@ -4,18 +4,7 @@ const friendBase = "https://geodmeeee.github.io/forksnspoons/";
 const colors = ["#55f0b2", "#ffd166", "#77d5ff", "#ff665c"];
 
 const games = [
-  ["10 Minutes Till Dawn", "1b2druj6_Zlrdq1h9gS4oaqQwJvND4z08", "Drive Game", "drive"],
-  ["1v1.lol", "16SVHF4XRFjv5WCqlLHJZhF6nkBM7q4ex", "Drive Game", "drive"],
-  ["Wheelie Bike", "1Xy9-f-8KIutBbUhfoON6y2299RhqJ55a", "Drive Game", "drive"],
-  ["Geometry Dash Lite", "1jvsz_EmjOTwgCcfeyPtZCfXKJn9SD2bs", "Drive Game", "drive"],
-  ["Happy Wheels", "13jcuwX7tgPFaANNGs9RaSAJGZRqcVU_Q", "Drive Game", "drive"],
-  ["Wheely", "1FE0CvE69h-DwtOE00YgxKM3SyuUZkuT7", "Drive Game", "drive"],
-  ["Wheely 2", "1XG_AkL01BMb_h2NOCssBhU8cLExZSCCc", "Drive Game", "drive"],
-  ["Wheely 3", "1m6tZTj_nkCClXu5sl5dtXXpYq7ZL1W0b", "Drive Game", "drive"],
-  ["Wheely 4", "1A5Q_xlAU5x4AfHF3pn6-uAGZZRJEpy9N", "Drive Game", "drive"],
-  ["Wheely 5", "1SODdbCxyU8djnI2-6NsRVjvSXikWAR74", "Drive Game", "drive"],
-  ["Wheely 6", "1zyBd6eGjWRoZDFJOhTN7nbJvlghFqZm3", "Drive Game", "drive"],
-  ["Wheely 7", "1go7TIoyeh0QSDol8fAie540MPK7dOwKc", "Drive Game", "drive"],
+  ["Wheely", "games/wheely/index.html"],
   ["Wheely 8", "1S-8EY6b87ztRKnnW82w_5BrVgXsOFwXs", "Drive Game", "drive"]
 ].map(([title, slug, imageOrCategory, category, source], index) => {
   const gameSource = source || (category === "drive" ? "drive" : "3kh0");
